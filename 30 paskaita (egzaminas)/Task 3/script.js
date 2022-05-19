@@ -20,8 +20,34 @@ function getUsers() {
     fetch(ENDPOINT)
     .then(response => { return response.json();})
     .then(gitUsers => {
-    console.log(gitUsers)
+        showUsers(gitUsers)
+        console.log(gitUsers)
     })
+}
+
+
+
+function showUsers(gitUsers) {
+    let userInfo = document.getElementById('output') 
+
+    // for (let i=0, i<gitUsers.lenght; i++){
+    //     console.log(gitUsers[i])
+    //     userInfo.innerHTML = gitUsers[0].login + ' ' + gitUsers[0].avatar_url
+    // }
+
+    for(let element of gitUsers){
+        console.log(element.login, element.avatar_url)
+        // userInfo.innerHTML = gitUsers[0].login + ' ' + gitUsers[0].avatar_url
+        
+        userInfo.innerHTML = element.login + ' ' + element.avatar_url
+        userInfo.style.background = 'pink'
+        userInfo.style.textAlign = 'center' 
+    }
+
+        // // userInfo.innerHTML = element.login
+        // userInfo.style.background = 'pink'
+        // userInfo.style.textAlign = 'center'
+    
 }
 
 
