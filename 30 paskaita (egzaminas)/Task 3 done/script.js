@@ -14,41 +14,36 @@ const ENDPOINT = 'https://api.github.com/users';
 
 let btn = document.getElementById('btn')
 
-btn.addEventListener('click', getUsers)
+btn.addEventListener('click', getUsers, myFunction)
 
 function getUsers() {
     fetch(ENDPOINT)
     .then(response => { return response.json();})
     .then(gitUsers => {
         showUsers(gitUsers)
+        myFunction()
         console.log(gitUsers)
     })
 }
 
-
+function myFunction() {
+    document.getElementById("message").innerHTML = "";
+}
 
 function showUsers(gitUsers) {
     let userInfo = document.getElementById('output') 
 
-    // for (let i=0, i<gitUsers.lenght; i++){
-    //     console.log(gitUsers[i])
-    //     userInfo.innerHTML = gitUsers[0].login + ' ' + gitUsers[0].avatar_url
-    // }
-
     for(let element of gitUsers){
         console.log(element.login, element.avatar_url)
-        // userInfo.innerHTML = gitUsers[0].login + ' ' + gitUsers[0].avatar_url
         
-        userInfo.innerHTML = element.login + ' ' + element.avatar_url
+        userInfo.innerHTML += element.login + ' ' + ' ' + element.avatar_url + "<br>"
         userInfo.style.background = 'pink'
         userInfo.style.textAlign = 'center' 
     }
 
-        // // userInfo.innerHTML = element.login
-        // userInfo.style.background = 'pink'
-        // userInfo.style.textAlign = 'center'
-    
 }
+
+
 
 
 

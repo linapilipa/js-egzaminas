@@ -12,18 +12,25 @@ class Movie {
         this.title = title;
         this.director = director;
         this.budget = budget;
-
+        console.log(this.budget)
     }
-    wasExpensive(brangu){
-        return brangu
-
+    
+    wasExpensive(movieBudget){
+        if (movieBudget > 100000000){
+        return('true')
+        } 
+        else return('false')
     }
 }  
 
-let theBatman = new Movie ('The Batman', 'Matt Reeves', '$200 000 000')
-let frozen = new Movie ('Frozen', 'Chris Buck', '$150 000 000')
-let gladiator = new Movie ('Gladiator', 'Ridley Scott', '$103 000 000')
 
-let brangusFilmas = theBatman.wasExpensive('$200 000 000')
+let theBatmanMovie = new Movie ('The Batman', 'Matt Reeves', 200000000)
+// console.log(theBatmanMovie)
+
+let brangusFilmas = theBatmanMovie.wasExpensive(200000000)
 console.log(brangusFilmas)
+
+
+
+
 

@@ -10,12 +10,20 @@ bent minimalų stilių;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'cars.json';
+let output = document.getElementById('output')
 
 fetch(ENDPOINT)
     .then(response => { return response.json();})
-    .then(gaunuMasinas => {
-        console.log(gaunuMasinas);
+    .then(getCars => {
+        console.log(getCars[0].brand);
+        showCars()
     })
 
+function showCars (getCars) {
+    let brand = document.createElement('div')
+    brand.setAttribute('class', 'brand')
+    output.appendChild(brand)
+    brand.innerHTML = "Brand"
+}
 
 
