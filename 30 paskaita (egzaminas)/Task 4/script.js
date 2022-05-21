@@ -15,9 +15,9 @@ let output = document.getElementById('output')
 fetch(ENDPOINT)
     .then(response => { return response.json();})
     .then(getCars => {
-        console.log(getCars[0].brand);
+        console.log(getCars);
         showCars()
-    })
+})
 
 function showCars (getCars) {
     let brand = document.createElement('div')
@@ -25,5 +25,6 @@ function showCars (getCars) {
     output.appendChild(brand)
     brand.innerHTML = "Brand"
 }
+
 
 

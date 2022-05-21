@@ -36,8 +36,8 @@ function showUsers(gitUsers) {
     for(let element of gitUsers){
         console.log(element.login, element.avatar_url)
         
-        userInfo.innerHTML += element.login + ' ' + ' ' + element.avatar_url + "<br>"
-        userInfo.style.background = 'pink'
+        userInfo.innerHTML += element.login + "<br>" + element.avatar_url + "<br>" + "<br>" + "<br>"
+        userInfo.style.background = '#fec631'
         userInfo.style.textAlign = 'center' 
     }
 
